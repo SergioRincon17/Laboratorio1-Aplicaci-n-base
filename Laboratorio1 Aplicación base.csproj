@@ -131,6 +131,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\TimeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -172,7 +173,6 @@
     <Content Include="Content\Imagenes\arrow-icon-vector.jpg" />
     <Content Include="Content\Imagenes\Persona.jpg" />
     <Content Include="Content\nprogress.css" />
-    <Content Include="Controllers\tables_dynamic.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -266,6 +266,7 @@
     <Content Include="Views\Admin\Lista_Usuarios.cshtml" />
     <Content Include="Views\Admin\View_Editar.cshtml" />
     <None Include="Properties\PublishProfiles\Laboratorio1Aplicaciónbase - Web Deploy.pubxml" />
+    <Content Include="Views\Time\setTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
