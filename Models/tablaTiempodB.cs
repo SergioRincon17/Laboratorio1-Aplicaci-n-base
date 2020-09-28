@@ -12,14 +12,9 @@ namespace Laboratorio1_Aplicación_base.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Tabla_1
+    public partial class tablaTiempodB
     {
         public int ID { get; set; }
-        public string Nombre { get; set; }
-        public string Correo { get; set; }
-        public string Contraseña { get; set; }
-        public string Tipo_Documento { get; set; }
-        public string Documento { get; set; }
-        public string Rol { get; set; }
+        public System.TimeSpan hora { get; set; }
     }
 }

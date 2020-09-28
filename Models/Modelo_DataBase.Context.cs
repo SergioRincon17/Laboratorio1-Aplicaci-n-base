@@ -13,10 +13,10 @@ namespace Laboratorio1_Aplicación_base.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Base_Datos_App1Entities : DbContext
+    public partial class Laboratorio1_AP_DataBaseEntities : DbContext
     {
-        public Base_Datos_App1Entities()
-            : base("name=Base_Datos_App1Entities")
+        public Laboratorio1_AP_DataBaseEntities()
+            : base("name=Laboratorio1_AP_DataBaseEntities")
         {
         }
     
@@ -25,6 +25,7 @@ namespace Laboratorio1_Aplicación_base.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Tabla_1> Tabla_1 { get; set; }
+        public virtual DbSet<tablaTiempodB> tablaTiempodB { get; set; }
+        public virtual DbSet<tablaUsuariosdB> tablaUsuariosdB { get; set; }
     }
 }
