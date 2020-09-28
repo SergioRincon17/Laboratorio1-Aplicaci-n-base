@@ -14,17 +14,17 @@ namespace Laboratorio1_Aplicación_base.Controllers
         {
             var Tem_List = new Lista_Usuarios_M(); // Creando el modelo 
             Tem_List.List_Usuarios = new List<Usuario>(); //intnciando o declarando una lista
-            using (Base_Datos_App1Entities DataBase = new Base_Datos_App1Entities()){ //leer base de datos
-                foreach( var Elemento in DataBase.Tabla_1)
+            using (Laboratorio1_AP_DataBaseEntities DataBase = new Laboratorio1_AP_DataBaseEntities()){ //leer base de datos
+                foreach( var Elemento in DataBase.tablaUsuariosdB)
                 {
                     Tem_List.List_Usuarios.Add(new Usuario {
                     ID=Elemento.ID,
-                    Contraseña= Elemento.Contraseña,
-                    Correo = Elemento.Correo,
-                    Documento=Elemento.Documento,
-                    Tipo_Documento = Elemento.Tipo_Documento,
-                    Nombre = Elemento.Nombre,
-                    Rol = Elemento.Rol
+                    Contraseña= Elemento.password,
+                    Correo = Elemento.correo,
+                    Documento=Elemento.numeroDocumento,
+                    Tipo_Documento = Elemento.tipoDocumento,
+                    Nombre = Elemento.nombre,
+                    Rol = Elemento.rol
                     });
                 }
 
@@ -36,16 +36,16 @@ namespace Laboratorio1_Aplicación_base.Controllers
             try
             {
                 var TemUsuario = new Usuario();
-                using (Base_Datos_App1Entities DataBase = new Base_Datos_App1Entities())
+                using (Laboratorio1_AP_DataBaseEntities DataBase = new Laboratorio1_AP_DataBaseEntities())
                 {
-                    var Usuario_ID = DataBase.Tabla_1.Find(ID);
+                    var Usuario_ID = DataBase.tablaUsuariosdB.Find(ID);
                     TemUsuario.ID = ID;
-                    TemUsuario.Nombre = Usuario_ID.Nombre;
-                    TemUsuario.Documento = Usuario_ID.Documento;
-                    TemUsuario.Tipo_Documento = Usuario_ID.Tipo_Documento;
-                    TemUsuario.Correo = Usuario_ID.Correo;
-                    TemUsuario.Contraseña = Usuario_ID.Contraseña;
-                    TemUsuario.Rol = Usuario_ID.Rol;
+                    TemUsuario.Nombre = Usuario_ID.nombre;
+                    TemUsuario.Documento = Usuario_ID.numeroDocumento;
+                    TemUsuario.Tipo_Documento = Usuario_ID.tipoDocumento;
+                    TemUsuario.Correo = Usuario_ID.correo;
+                    TemUsuario.Contraseña = Usuario_ID.password;
+                    TemUsuario.Rol = Usuario_ID.rol;
                     return View(TemUsuario);
                 }
             }
@@ -59,15 +59,15 @@ namespace Laboratorio1_Aplicación_base.Controllers
         public ActionResult Editar(Usuario TemUsuario) {
             try
             {
-                using (Base_Datos_App1Entities DataBase = new Base_Datos_App1Entities())
+                using (Laboratorio1_AP_DataBaseEntities DataBase = new Laboratorio1_AP_DataBaseEntities())
                 {
-                    var EditUsuario = DataBase.Tabla_1.Find(TemUsuario.ID);
-                    EditUsuario.Nombre = TemUsuario.Nombre;
-                    EditUsuario.Documento = TemUsuario.Documento;
-                    EditUsuario.Tipo_Documento = Request.Form["tipoDoc"];
-                    EditUsuario.Correo = TemUsuario.Correo;
-                    EditUsuario.Contraseña = TemUsuario.Contraseña;
-                    EditUsuario.Rol = TemUsuario.Rol;
+                    var EditUsuario = DataBase.tablaUsuariosdB.Find(TemUsuario.ID);
+                    EditUsuario.nombre = TemUsuario.Nombre;
+                    EditUsuario.numeroDocumento = TemUsuario.Documento;
+                    EditUsuario.tipoDocumento = Request.Form["tipoDoc"];
+                    EditUsuario.correo = TemUsuario.Correo;
+                    EditUsuario.password = TemUsuario.Contraseña;
+                    EditUsuario.rol = TemUsuario.Rol;
 
                     DataBase.Entry(EditUsuario).State = System.Data.Entity.EntityState.Modified;
                     DataBase.SaveChanges();
@@ -85,10 +85,10 @@ namespace Laboratorio1_Aplicación_base.Controllers
         {
             try
             {
-                using (Base_Datos_App1Entities DataBase = new Base_Datos_App1Entities())
+                using (Laboratorio1_AP_DataBaseEntities DataBase = new Laboratorio1_AP_DataBaseEntities())
                 {
-                    var DeletUsuario = DataBase.Tabla_1.Find(ID);
-                    DataBase.Tabla_1.Remove(DeletUsuario);
+                    var DeletUsuario = DataBase.tablaUsuariosdB.Find(ID);
+                    DataBase.tablaUsuariosdB.Remove(DeletUsuario);
                     DataBase.SaveChanges();
                 }
                 return Redirect("~/Admin/Lista_Usuarios");

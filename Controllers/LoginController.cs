@@ -20,21 +20,21 @@ namespace Laboratorio1_Aplicación_base.Controllers
             {
                 if (ModelState.IsValid) //Comprueba que el modelo de Usuario o los modelos correspoendan 
                 {
-                    using (Base_Datos_App1Entities DataBase = new Base_Datos_App1Entities())
+                    using (Laboratorio1_AP_DataBaseEntities DataBase = new Laboratorio1_AP_DataBaseEntities())
                     {
-                        var DataBaseTabla_1 = DataBase.Tabla_1.Where(User => User.Correo.Contains(usuario.Correo)).FirstOrDefault();
+                        var DataBaseTabla_1 = DataBase.tablaUsuariosdB.Where(User => User.correo.Contains(usuario.Correo)).FirstOrDefault();
                         if (DataBaseTabla_1 != null)
                             return Redirect("~/Login/Index#signup");
                         else
                         {
-                            var TempUsuario = new Tabla_1();
-                            TempUsuario.Contraseña = usuario.Contraseña;
-                            TempUsuario.Correo = usuario.Correo;
-                            TempUsuario.Tipo_Documento = Request.Form["tipoDoc"];
-                            TempUsuario.Documento = usuario.Documento;
-                            TempUsuario.Nombre = usuario.Nombre;
-                            TempUsuario.Rol = "Estudiante";
-                            DataBase.Tabla_1.Add(TempUsuario);
+                            var TempUsuario = new tablaUsuariosdB();
+                            TempUsuario.password = usuario.Contraseña;
+                            TempUsuario.correo = usuario.Correo;
+                            TempUsuario.tipoDocumento = Request.Form["tipoDoc"];
+                            TempUsuario.numeroDocumento = usuario.Documento;
+                            TempUsuario.nombre = usuario.Nombre;
+                            TempUsuario.rol = "Estudiante";
+                            DataBase.tablaUsuariosdB.Add(TempUsuario);
                             DataBase.SaveChanges();
                         }
                     }
@@ -51,11 +51,11 @@ namespace Laboratorio1_Aplicación_base.Controllers
         public ActionResult VerificarLogin(Usuario usuario)
         {
             try{
-                using (Base_Datos_App1Entities DataBase = new Base_Datos_App1Entities())
+                using (Laboratorio1_AP_DataBaseEntities DataBase = new Laboratorio1_AP_DataBaseEntities())
                 {
-                    var DataBaseTabla_1 = DataBase.Tabla_1.Where(User => User.Correo.Contains(usuario.Correo)).FirstOrDefault();
+                    var DataBaseTabla_1 = DataBase.tablaUsuariosdB.Where(User => User.correo.Contains(usuario.Correo)).FirstOrDefault();
                     if (DataBaseTabla_1 != null){
-                        if (DataBaseTabla_1.Correo != null && DataBaseTabla_1.Contraseña == usuario.Contraseña)
+                        if (DataBaseTabla_1.correo != null && DataBaseTabla_1.password == usuario.Contraseña)
                             return Redirect("~/Home/Index");
                     }
                 }
