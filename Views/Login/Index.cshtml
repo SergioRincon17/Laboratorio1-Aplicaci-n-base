@@ -1,0 +1,128 @@
+﻿@model Laboratorio1_Aplicación_base.Models.Usuario
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="~/Content/Imagenes/arrow-icon-vector.jpg" type="image/ico" />
+
+    <title>@ViewBag.Title</title>
+
+    <!-- Bootstrap -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- NProgress -->
+    <link href="~/Content/nprogress.css" rel="stylesheet" />
+    <!-- Animate.css -->
+    <link href="~/Content/animate.min.css" rel="stylesheet" />
+
+    <!-- Custom Theme Style -->
+    <link href="~/Content/Gentelella/custom.min.css" rel="stylesheet" />
+</head>
+
+<body class="login">
+
+    <div>
+        <a class="hiddenanchor" id="signup"></a>
+        <a class="hiddenanchor" id="signin"></a>
+
+        <div class="login_wrapper">
+            <div class="animate form login_form">
+                <section class="login_content">
+                    <!--Login-->
+                    <form action="~/Login/VerificarLogin">
+                        <h1>Login</h1>
+                        <div>
+                            <input name="Correo" type="text" class="form-control" placeholder="Correo" required="" />
+                        </div>
+                        <div>
+                            <input name="Contraseña" type="password" class="form-control" placeholder="Contraseña" required="" />
+                        </div>
+                        <div>
+                            <!--Verificar Usuario-->
+                            <input class="btn btn-secondary" type="submit" value="Login" />
+                            <!--Verificar Usuario-->
+                            <a class="reset_pass" href="#">¿Olvido Su Contraseña?</a>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div class="separator">
+                            <p class="change_link">
+                                <a href="#signup" class="to_register"> Crear Usuario </a>
+                            </p>
+
+                            <div class="clearfix"></div>
+                            <br />
+                        </div>
+                    </form>
+                    <!--Login-->
+                </section>
+            </div>
+
+            <div id="register" class="animate form registration_form">
+                <section class="login_content">
+                    <!--Registrar-->
+                    <form action="~/Login/Crear_Cuenta" method="post">
+                        <h1>Create Account</h1>
+                        <div>
+                            <input name="Nombre" type="text" class="form-control" placeholder="Nombre" required="" />
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <input name="Documento" type="text" class="form-control" placeholder="Documento" required="" />
+                            </div>
+                            <div class="col-md-2">
+                                <div class="btn-group">
+                                    <select class="btn btn-light" name="tipoDoc">
+                                        <option class="dropdown-item" value="CC"> CC </option>
+                                        <option class="dropdown-item" value="TI"> TI </option>
+                                        <option class="dropdown-item" value="TI"> RC </option>
+                                        <option class="dropdown-item" value="TI"> CE </option>
+                                        <option class="dropdown-item" value="TI"> PA </option>
+                                        <option class="dropdown-item" value="TI"> MS </option>
+                                        <option class="dropdown-item" value="TI"> AS </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <input name="Correo" type="email" class="form-control" placeholder="Email" required="" />
+                        </div>
+                        <div>
+                            <input name="Contraseña" type="password" class="form-control" placeholder="Password" required="" />
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3"></div>
+                            <div >
+                                <input class="btn btn-secondary" type="submit" value="Registrar" />
+                            </div>
+                            <div class="col-md-3"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="separator">
+                            <p class="change_link">
+                                <a href="#signin" class="to_register"> Log in </a>
+                            </p>
+                            <div class="clearfix"></div>
+                            <br />
+                        </div>
+                    </form>
+                    <!--Registrar-->
+                </section>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

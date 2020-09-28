@@ -1,0 +1,55 @@
+﻿@model Laboratorio1_Aplicación_base.Models.Usuario
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<form action="~/Admin/Editar" method="post">
+    <h1>Create Account</h1>
+    @Html.HiddenFor(Model => Model.ID)
+    <div class="row">
+        <div class="col-md-6">
+            <input name="Nombre" value=@Model.Nombre type="text" class="form-control" placeholder="Nombre" required="" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <input name="Rol" value=@Model.Rol type="text" class="form-control" placeholder="Rol" required="" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <input name="Documento" value=@Model.Documento type="text" class="form-control" placeholder="Documento" required="" />
+        </div>
+        <div class="col-md-2">
+            <div class="btn-group">
+                <select class="btn btn-light" name="tipoDoc">
+                    <option class="dropdown-item" value="CC"> CC </option>
+                    <option class="dropdown-item" value="TI"> TI </option>
+                    <option class="dropdown-item" value="TI"> RC </option>
+                    <option class="dropdown-item" value="TI"> CE </option>
+                    <option class="dropdown-item" value="TI"> PA </option>
+                    <option class="dropdown-item" value="TI"> MS </option>
+                    <option class="dropdown-item" value="TI"> AS </option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <input name="Correo" value=@Model.Correo type="email" class="form-control" placeholder="Email" required="" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <input name="Contraseña" value=@Model.Contraseña type="password" class="form-control" placeholder="Password" required="" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div>
+            <input class="btn btn-secondary" type="submit" value="Editar" />
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</form>
