@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/laboratorio1apserver/databases/Laboratorio1_AP_DataBase",
+      "type": "mssql.azure",
+      "connectionId": "Laboratorio1_AP_DataBaseEntities",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}
