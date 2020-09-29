@@ -3,6 +3,9 @@
     "mssql1": {
       "type": "mssql",
       "connectionId": "Laboratorio1_AP_DataBaseEntities"
+    },
+    "secrets1": {
+      "type": "secrets"
     }
   }
 }
